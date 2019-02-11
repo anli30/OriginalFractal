@@ -1,6 +1,6 @@
 public void setup()
 {
-  size(1000,1000);
+  size(900,900);
 }
 
 public void draw()
@@ -8,19 +8,20 @@ public void draw()
 	background(0,0,0);
 	noFill();
 	
-  for(int i = 0; i < 700; i +=200)
-  {
-    stroke(#90E0FF);
-    fractal(250+i,100+i,350+i,100+i,250 +i,300+i,50+i,200+i,800);
-  }
+  strokeWeight(0.25);
+	fractal(450,300,650,400,450,500,250,400,600,190);
 }
 
-public void fractal(int a, int b, int c, int d, int e, int f, int g, int h, int inc)
+public void fractal(float a, float b, float c, float d, float e, float f, float g, float h, float inc, int bl)
 {
+  stroke(50,160,bl);
 	quad(a,b,c,d,e,f,g,h);
 	if(inc > 10)
 	{
-		fractal(a-inc,b,c-inc,d,e-inc,f,g-inc,h,inc-200);
-    fractal(a+inc,b,c+inc,d,e+inc,f,g+inc,h,inc-10);
+		fractal(a-inc,b,c-inc,d,e-inc,f,g-inc,h,inc/2.47,bl+100);
+	    fractal(a+inc,b,c+inc,d,e+inc,f,g+inc,h,inc/2.47,bl+100);
+	    fractal(a,b-inc,c,d-inc,e,f-inc,g,h-inc,inc/2.47,bl+100);
+	    fractal(a,b+inc,c,d+inc,e,f+inc,g,h+inc,inc/2.47,bl+100);
 	}
+		
 }
